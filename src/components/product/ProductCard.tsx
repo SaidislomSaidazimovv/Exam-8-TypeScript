@@ -17,6 +17,7 @@ interface ProductCardProps {
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(true);
+  const currency = useSelector((state: RootState) => state.currency.selected);
 
   const likes = useSelector((state: RootState) => state.likes.items);
   const cartItems = useSelector((state: RootState) => state.cart.items);
@@ -43,6 +44,16 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const handleImageLoad = () => {
     setIsLoading(false);
   };
+
+  const Price = (price: string) => {
+    const numbericPrice = parseFloat(price);
+    if (isNaN(numbericPrice)) return "";
+
+    if (currency === "UZS") {
+        return (numbericPrice * 12600).toLocaleString() + " UZS";
+    }
+    return "$" + numbericPrice.toFixed(2);
+};
 
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105 transform mt-3">
@@ -73,7 +84,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           {product.name}
         </h3>
         <p className="text-gray-600 mb-2">{product.brand}</p>
-        <p className="text-blue-600 font-bold mb-2">${product.price}</p>
+        <p className="text-blue-600 font-bold mb-2">{Price(product.price)}</p>
         <div className="flex justify-between items-center">
           <button
             onClick={handleAddToCart}
