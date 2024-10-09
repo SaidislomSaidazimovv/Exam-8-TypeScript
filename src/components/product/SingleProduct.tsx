@@ -1,112 +1,5 @@
-// import React from "react";
-// import { useParams } from "react-router-dom";
-// import { useGetProductByIdQuery } from "../../services/makeupApi";
-// import { useDispatch, useSelector } from "react-redux";
-// import { addToCart } from "../../features/cartSlice";
-// import { addToLikes, removeFromLikes } from "../../features/likeSlice";
-// import { RootState } from "../../app/index";
-
-// const SingleProduct: React.FC = () => {
-//   const { id } = useParams<{ id: string }>() as { id: string };
-//   const { data: product, isLoading, error } = useGetProductByIdQuery(id);
-//   const dispatch = useDispatch();
-//   const likes = useSelector((state: RootState) => state.likes.items);
-//   const isLike = product ? likes.some((item) => item.id === product.id) : false;
-//   const handleAddToCart = () => product && dispatch(addToCart(product));
-//   const currency = useSelector((state: RootState) => state.currency.selected);
-
-//   const handleToggleFavorite = () => {
-//     if (product) {
-//       isLike
-//         ? dispatch(removeFromLikes(product.id))
-//         : dispatch(addToLikes(product));
-//     }
-//   };
-
-//   const Price = (price: string) => {
-//     const numbericPrice = parseFloat(price);
-//     if (isNaN(numbericPrice)) return "";
-
-//     if (currency === "UZS") {
-//         return (numbericPrice * 12600).toLocaleString() + " UZS";
-//     }
-//     return "$" + numbericPrice.toFixed(2);
-// };
-
-//   if (isLoading) return <div className="animate-pulse">Loading...</div>;
-//   if (error) return <div>Error occurred</div>;
-//   if (!product) return <div>Product not found</div>;
-
-//   return (
-//     <div className="bg-white rounded-lg shadow-md p-6">
-//       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-//         <div>
-//           <img
-//             src={product.image_link}
-//             alt={product.name}
-//             className="w-full h-auto object-cover rounded-lg"
-//           />
-//         </div>
-
-//         <div>
-//           <h1 className="text-3xl font-bold mb-4">{product.name}</h1>
-//           <p className="text-xl text-gray-600 mb-4">{product.brand}</p>
-//           <p className="text-2xl text-blue-600 font-bold mb-4">
-//           {Price(product.price)}
-//           </p>
-
-//           <div className="flex space-x-4 mb-6">
-//             <button
-//               onClick={handleAddToCart}
-//               className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors duration-200"
-//             >
-//               Add to Cart
-//             </button>
-//             <button
-//               onClick={handleToggleFavorite}
-//               className={`px-4 py-2 rounded-lg transition-colors duration-200 ${
-//                 isLike
-//                   ? "bg-red-500 text-white hover:bg-red-600"
-//                   : "bg-gray-300 text-black hover:bg-gray-400"
-//               }`}
-//             >
-//               {isLike ? "Remove from Favorites" : "Add to Favorites"}
-//             </button>
-//           </div>
-
-//           <h2 className="text-xl font-semibold mb-2">Description</h2>
-//           <div
-//             className="prose max-w-none"
-//             dangerouslySetInnerHTML={{ __html: product.description }}
-//           />
-//         </div>
-//       </div>
-
-//       {product.product_colors.length > 0 && (
-//         <div className="mt-8">
-//           <h2 className="text-xl font-semibold mb-4">Available Colors</h2>
-//           <div className="flex flex-wrap gap-2">
-//             {product.product_colors.map((color) => (
-//               <div
-//                 key={color.hex_value}
-//                 className="w-8 h-8 rounded-full border border-gray-300"
-//                 style={{ backgroundColor: color.hex_value }}
-//                 title={color.colour_name}
-//               />
-//             ))}
-//           </div>
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default SingleProduct;
-
-
-
-import React, { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { useParams, Link } from "react-router-dom";
 import { useGetProductByIdQuery } from "../../services/makeupApi";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../features/cartSlice";
@@ -158,14 +51,26 @@ const SingleProduct: React.FC = () => {
     <div className="bg-white max-w-7xl mx-auto p-6">
       <nav className="text-sm breadcrumbs mb-4">
         <ul className="flex space-x-2">
-          <li><Link to="/" className="text-gray-500 hover:text-gray-700">MAKEUP</Link></li>
-          <li><span className="text-gray-500">/</span></li>
-          <li><Link to="/perfume" className="text-gray-500 hover:text-gray-700">Парфюмерия</Link></li>
-          <li><span className="text-gray-500">/</span></li>
+          <li>
+            <Link to="/" className="text-gray-500 hover:text-gray-700">
+              MAKEUP
+            </Link>
+          </li>
+          <li>
+            <span className="text-gray-500">/</span>
+          </li>
+          <li>
+            <Link to="/perfume" className="text-gray-500 hover:text-gray-700">
+              Парфюмерия
+            </Link>
+          </li>
+          <li>
+            <span className="text-gray-500">/</span>
+          </li>
           <li className="text-gray-700">{product.name}</li>
         </ul>
       </nav>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
         <div>
           <motion.img
@@ -191,20 +96,26 @@ const SingleProduct: React.FC = () => {
         </div>
 
         <div>
-          <div className="bg-gray-100 text-xs font-semibold text-gray-700 px-2 py-1 rounded inline-block mb-2">DEAL</div>
+          <div className="bg-gray-100 text-xs font-semibold text-gray-700 px-2 py-1 rounded inline-block mb-2">
+            DEAL
+          </div>
           <h1 className="text-3xl font-bold mb-2">{product.name}</h1>
           <p className="text-xl text-gray-600 mb-2">{product.brand}</p>
           <div className="flex items-center mb-4">
             <div className="flex mr-2">
               {[...Array(5)].map((_, i) => (
-                <svg key={i} className="w-4 h-4 fill-current text-yellow-500" viewBox="0 0 24 24">
+                <svg
+                  key={i}
+                  className="w-4 h-4 fill-current text-yellow-500"
+                  viewBox="0 0 24 24"
+                >
                   <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
                 </svg>
               ))}
             </div>
             <span className="text-sm text-gray-600">(225 отзывов)</span>
           </div>
-          
+
           <p className="text-3xl font-bold text-blue-600 mb-4">
             {formatPrice(product.price)}
           </p>
@@ -245,9 +156,7 @@ const SingleProduct: React.FC = () => {
             <motion.button
               onClick={handleToggleFavorite}
               className={`p-3 rounded-lg ${
-                isLike
-                  ? "bg-red-500 text-white"
-                  : "bg-gray-200 text-gray-800"
+                isLike ? "bg-red-500 text-white" : "bg-gray-200 text-gray-800"
               }`}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
@@ -262,7 +171,9 @@ const SingleProduct: React.FC = () => {
           </div>
 
           <div className="bg-purple-100 p-4 rounded-lg mb-6">
-            <h2 className="text-lg font-semibold mb-2 text-purple-800">Акция</h2>
+            <h2 className="text-lg font-semibold mb-2 text-purple-800">
+              Акция
+            </h2>
             <p className="text-sm text-purple-700">
               Получите подарок при покупке парфюмерии Calvin Klein на сумму
               свыше 558861 сум
@@ -283,12 +194,21 @@ const SingleProduct: React.FC = () => {
               <ChevronDown size={20} />
             </motion.div>
             <div className="mt-4 text-sm text-gray-600">
-              <p><strong>Бренд:</strong> Calvin Klein</p>
-              <p><strong>Серия:</strong> CK IN2U Her</p>
-              <p><strong>Группа товара:</strong> туалетная вода</p>
-              <p><strong>Классификация:</strong> элитная</p>
-              <p><strong>Объем:</strong> 50ml, 100ml, 150ml, 200ml</p>
-              {/* Add more characteristics as needed */}
+              <p>
+                <strong>Бренд:</strong> Calvin Klein
+              </p>
+              <p>
+                <strong>Серия:</strong> CK IN2U Her
+              </p>
+              <p>
+                <strong>Группа товара:</strong> туалетная вода
+              </p>
+              <p>
+                <strong>Классификация:</strong> элитная
+              </p>
+              <p>
+                <strong>Объем:</strong> 50ml, 100ml, 150ml, 200ml
+              </p>
             </div>
           </div>
         </div>
