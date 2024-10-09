@@ -1,37 +1,27 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import SlideImage1 from "../../assets/SlideImage1.jpg";
-import SlideImage2 from "../../assets/SlideImage2.jpg";
-import SlideImage3 from "../../assets/SlideImage3.jpg";
-import SlideImage4 from "../../assets/SlideImage4.jpg";
-import SlideImage5 from "../../assets/SlideImage5.jpg";
 
 const brands = [
   {
     name: "OLAPLEX",
     description: "Сила профессионального ухода для безупречных волос",
-    image: SlideImage1,
   },
   {
     name: "MAREVE",
     description: "Скидка 20% на набор",
-    image: SlideImage2,
   },
   {
     name: "NaturalME",
     description:
       "При покупке любого продукта NaturalME - крем Derma в подарок!",
-    image: SlideImage3,
   },
   {
     name: "Paloma",
     description: "При покупке двух товаров Paloma Cosmetics третий в подарок",
-    image: SlideImage4,
   },
   {
     name: "tanita",
     description: "При покупке двух товаров марки tanita третий в подарок!",
-    image: SlideImage5,
   },
 ];
 
@@ -75,7 +65,7 @@ const Promo = () => {
           }`}
         >
           <img
-            src={brands[currentIndex].image}
+            // src={brands[currentIndex].image}
             alt={brands[currentIndex].name}
             className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
           />
@@ -101,7 +91,9 @@ const Promo = () => {
             key={index}
             onClick={() => setCurrentIndex(index)}
             className={`w-3 h-3 rounded-full mx-1 transition-colors duration-200 ${
-              index === currentIndex ? "bg-blue-500" : "bg-gray-300 hover:bg-gray-400"
+              index === currentIndex
+                ? "bg-blue-500"
+                : "bg-gray-300 hover:bg-gray-400"
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
