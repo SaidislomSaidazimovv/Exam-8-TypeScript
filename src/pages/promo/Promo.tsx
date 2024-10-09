@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import SlideImage1 from "../../assets/slideImage1.jpg";
-import SlideImage2 from "../../assets/slideImage2.jpg";
-import SlideImage3 from "../../assets/slideImage3.jpg";
-import SlideImage4 from "../../assets/slideImage4.jpg";
-import SlideImage5 from "../../assets/slideImage5.jpg";
+import SlideImage1 from "../../assets/SlideImage1.jpg";
+import SlideImage2 from "../../assets/SlideImage2.jpg";
+import SlideImage3 from "../../assets/SlideImage3.jpg";
+import SlideImage4 from "../../assets/SlideImage4.jpg";
+import SlideImage5 from "../../assets/SlideImage5.jpg";
 
 const brands = [
   {
