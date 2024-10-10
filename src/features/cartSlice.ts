@@ -25,7 +25,6 @@ const cartSlice = createSlice({
       );
       if (existingItem) {
         existingItem.quantity++;
-        toast.success(`${existingItem.name} quantity updated in cart!`);
       } else {
         state.items.push({ ...action.payload, quantity: 1 });
         toast.success(`${action.payload.name} added to cart!`);
@@ -49,7 +48,6 @@ const cartSlice = createSlice({
       const item = state.items.find((item) => item.id === action.payload.id);
       if (item) {
         item.quantity = action.payload.quantity;
-        toast.info(`Quantity updated for ${item.name}!`);
       }
       localStorage.setItem("cart", JSON.stringify(state.items));
     },

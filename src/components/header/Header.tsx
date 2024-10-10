@@ -16,6 +16,7 @@ const Header: React.FC = () => {
   const dispatch = useDispatch();
   const { isLoading } = useCurrency();
   const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
+
   const cartItemsCount = useSelector(
     (state: RootState) => state.cart.items.length
   );
@@ -77,15 +78,6 @@ const Header: React.FC = () => {
               <option value="USD">USD</option>
               <option value="UZS">UZS</option>
             </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-              <svg
-                className="fill-current h-4 w-4"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-              >
-                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-              </svg>
-            </div>
             {isLoading && (
               <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-gray-200 bg-opacity-50 rounded-md">
                 <div className="animate-spin rounded-full h-6 w-6 border-t-2 border-b-2 border-blue-600"></div>

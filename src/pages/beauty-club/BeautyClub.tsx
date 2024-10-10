@@ -1,9 +1,30 @@
+import { useEffect, useState } from "react";
 import Img1 from "../../assets/1.png";
 import Img2 from "../../assets/2.png";
 import Img3 from "../../assets/3.png";
 import Img4 from "../../assets/4.png";
 
 const BeautyClub = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen bg-gradient-to-r">
+        <div className="flex flex-col items-center space-y-4">
+          <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-black"></div>
+          <span className="black-white font-semibold text-lg">Loading...</span>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div>
       <h2 className="text-center font-semibold text-4xl mb-7 mt-9">

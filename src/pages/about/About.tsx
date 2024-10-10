@@ -12,8 +12,11 @@ const About = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-screen">
-        Loading...
+      <div className="flex justify-center items-center h-screen bg-gradient-to-r">
+        <div className="flex flex-col items-center space-y-4">
+          <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-black"></div>
+          <span className="black-white font-semibold text-lg">Loading...</span>
+        </div>
       </div>
     );
   }

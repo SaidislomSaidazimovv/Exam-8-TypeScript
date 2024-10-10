@@ -97,10 +97,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           </button>
         )}
 
-        <div className="p-4">
-          <h3 className="text-lg font-semibold mb-2 text-gray-800 hover:text-blue-600 transition-colors duration-200 truncate">
-            {product.name}
-          </h3>
+        <div className="px-4 py-6">
+          <Link to={`/product/${product.id}`}>
+            <h3 className="text-lg font-semibold mb-2 text-gray-800 hover:text-blue-600 transition-colors duration-200 truncate">
+              {product.name}
+            </h3>
+          </Link>
           <p className="text-sm text-gray-600 mb-2">{product.brand}</p>
           <div className="flex items-center">
             {[...Array(5)].map((_, i) => (

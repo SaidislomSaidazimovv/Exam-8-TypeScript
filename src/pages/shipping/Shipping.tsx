@@ -1,16 +1,35 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 
 const Shipping = () => {
   const [city, setCity] = useState("");
+  const [loading, setLoading] = useState(true);
 
   const handleCityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCity(e.target.value);
   };
 
   const handleSearch = () => {
-    console.log(`Searching shipping options for: ${city}`);
+    console.log(`Searching for: ${city}`);
   };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen bg-gradient-to-r">
+        <div className="flex flex-col items-center space-y-4">
+          <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-black"></div>
+          <span className="black-white font-semibold text-lg">Loading...</span>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col items-center py-10">

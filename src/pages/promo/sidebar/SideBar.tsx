@@ -1,6 +1,6 @@
 import React from "react";
 
-const LeftSideBar: React.FC = () => {
+const SideBar: React.FC = () => {
   const categories = [
     { id: 1, name: "Lipstick" },
     { id: 2, name: "Foundation" },
@@ -39,4 +39,4 @@ const LeftSideBar: React.FC = () => {
   );
 };
 
-export default LeftSideBar;
+export default SideBar;

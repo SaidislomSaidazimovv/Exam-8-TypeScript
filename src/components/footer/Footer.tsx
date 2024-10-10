@@ -17,11 +17,13 @@ import japan from "../../assets/japan.svg";
 import russia from "../../assets/russia.svg";
 import southKorea from "../../assets/southkorea.svg";
 import usa from "../../assets/usa.svg";
+import SearchPart from "../../pages/promo/searchPart/SearchPart";
 
 const Footer = () => {
   return (
-    <footer className="bg-white text-gray-600 py-8 text-sm">
-      <div className="container mx-auto px-4">
+    <footer className="bg-white text-gray-600 py-6 text-sm">
+      <SearchPart />
+      <div className="container mt-16 mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <h3 className="font-semibold mb-3">О нас</h3>
@@ -96,13 +98,13 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold mb-3">+998 712 050 578</h3>
             <p>
-              Вы можете{" "}
+              Вы можете
               <a
                 href="/contact"
                 className="text-purple-600 hover:text-purple-800"
               >
                 написать нам письмо
-              </a>{" "}
+              </a>
               позвонить нам по телефонам
             </p>
             <p className="mt-2">Ежедневно с 7:55 до 20:05</p>

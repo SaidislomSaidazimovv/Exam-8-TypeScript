@@ -14,26 +14,17 @@ interface Product {
   brand: string;
   name: string;
   price: string;
-  price_sign: string;
-  currency: string;
-  image_link: string;
-  product_link: string;
-  website_link: string;
-  description: string;
   rating: number | null;
   category: string;
   product_type: string;
   tag_list: string[];
-  created_at: string;
-  updated_at: string;
-  product_api_url: string;
-  api_featured_image: string;
   product_colors: { hex_value: string; colour_name: string }[];
 }
 
-const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
+const Search: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [productType, setProductType] = useState("lipstick");
+  const [category, setCategory] = useState("all");
   const [isLoading, setIsLoading] = useState(false);
   const [results, setResults] = useState<Product[]>([]);
   const [error, setError] = useState("");
@@ -53,7 +44,7 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
     } else {
       setResults([]);
     }
-  }, [searchTerm, productType]);
+  }, [searchTerm, productType, category]);
 
   const handleSearch = async () => {
     setIsLoading(true);
@@ -62,7 +53,9 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
       const response = await axios.get(
         `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${encodeURIComponent(
           searchTerm
-        )}&product_type=${encodeURIComponent(productType)}`
+        )}&product_type=${encodeURIComponent(productType)}${
+          category !== "all" ? `&category=${encodeURIComponent(category)}` : ""
+        }`
       );
       setResults(response.data);
     } catch (err) {
@@ -134,6 +127,16 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
             <option value="foundation">Foundation</option>
             <option value="eyeliner">Eyeliner</option>
           </select>
+          <select
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            className="ml-4 p-2 border border-gray-300 rounded"
+          >
+            <option value="all">All Categories</option>
+            <option value="organic">Organic</option>
+            <option value="vegan">Vegan</option>
+            <option value="natural">Natural</option>
+          </select>
           <button
             onClick={onClose}
             className="ml-2 text-gray-500 hover:text-gray-700"
@@ -172,4 +175,4 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
   );
 };
 
-export default SearchModal;
+export default Search;
