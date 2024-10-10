@@ -36,7 +36,7 @@ const categories = [
   },
 ];
 
-const CategoryCarousel: React.FC = () => {
+const CategoryProductList: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   const handleCategoryClick = (categoryName: string) => {
@@ -119,4 +119,4 @@ const CategoryCarousel: React.FC = () => {
   );
 };
 
-export default CategoryCarousel;
+export default CategoryProductList;

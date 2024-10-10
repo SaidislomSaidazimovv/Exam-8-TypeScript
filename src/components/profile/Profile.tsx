@@ -3,7 +3,7 @@ import { Loader2 } from "lucide-react";
 import { FcGoogle } from "react-icons/fc";
 import { IoLogoAppleAppstore } from "react-icons/io5";
 
-const LoginForm = () => {
+const Profile = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -124,4 +124,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default Profile;

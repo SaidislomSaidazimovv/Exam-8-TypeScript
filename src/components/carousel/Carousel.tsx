@@ -8,7 +8,7 @@ import Image4 from "../../assets/image4.jpg";
 import Image5 from "../../assets/image5.jpg";
 import Image6 from "../../assets/image6.jpg";
 
-const ImageCarousel = () => {
+const Carousel = () => {
   const settings = {
     dots: true,
     infinite: true,
@@ -38,4 +38,4 @@ const ImageCarousel = () => {
   );
 };
 
-export default ImageCarousel;
+export default Carousel;

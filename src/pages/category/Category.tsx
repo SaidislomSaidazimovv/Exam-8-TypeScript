@@ -8,7 +8,7 @@ import { MdExpandMore } from "react-icons/md";
 import { MdOutlineExpandLess } from "react-icons/md";
 import Sidebar from "./leftSideBar/LeftSideBar";
 
-const CategoryPage: React.FC = () => {
+const Category: React.FC = () => {
   const { category } = useParams<{ category: string }>();
   const { data: products, isLoading } = useGetProductsQuery();
 
@@ -73,4 +73,4 @@ const CategoryPage: React.FC = () => {
   );
 };
 
-export default CategoryPage;
+export default Category;
