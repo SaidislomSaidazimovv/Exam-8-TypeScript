@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useGetProductsQuery } from "../../services/makeupApi";
 import ProductCard from "./ProductCard";
 import ImageCarousel from "../carousel/Carousel";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ProductList: React.FC = () => {
   const [category, setCategory] = useState<string | null>(null);
@@ -15,6 +17,7 @@ const ProductList: React.FC = () => {
 
   return (
     <div className="container mx-auto p-4">
+      <ToastContainer />
       <ImageCarousel />
 
       {isLoading && (

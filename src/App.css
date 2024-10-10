@@ -1,11 +1,4 @@
-/* @layer components {
-  .btn {
-    @apply px-4 py-2 rounded-md transition duration-300 ease-in-out;
-  }
-  .btn-primary {
-    @apply bg-blue-500 text-white hover:bg-blue-600;
-  }
-  .btn-secondary {
-    @apply bg-gray-200 text-gray-800 hover:bg-gray-300;
-  }
-} */
+.startCs {
+  max-width: 1440px;
+  margin: 0 auto;
+}

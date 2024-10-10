@@ -1,30 +1,29 @@
 @keyframes modalFadeIn {
-    from {
-      opacity: 0;
-      transform: scale(0.95);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
+  from {
+    opacity: 0;
+    transform: scale(0.95);
   }
-  
-  @keyframes modalFadeOut {
-    from {
-      opacity: 1;
-      transform: scale(1);
-    }
-    to {
-      opacity: 0;
-      transform: scale(0.95);
-    }
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
-  
-  .modal-enter {
-    animation: modalFadeIn 0.3s forwards ease-out;
+}
+
+@keyframes modalFadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
   }
-  
-  .modal-exit {
-    animation: modalFadeOut 0.3s forwards ease-out;
+  to {
+    opacity: 0;
+    transform: scale(0.95);
   }
-  
+}
+
+.modal-enter {
+  animation: modalFadeIn 0.3s forwards ease-out;
+}
+
+.modal-exit {
+  animation: modalFadeOut 0.3s forwards ease-out;
+}

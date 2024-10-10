@@ -6,7 +6,9 @@ import Img4 from "../../assets/4.png";
 const BeautyClub = () => {
   return (
     <div>
-      <h2 className="text-center font-semibold text-4xl mb-7 mt-9">Beauty Club</h2>
+      <h2 className="text-center font-semibold text-4xl mb-7 mt-9">
+        Beauty Club
+      </h2>
       <div className="flex justify-center items-center py-12 px-6 bg-white">
         <div className="max-w-md mr-64">
           <h1 className="text-2xl font-semibold mb-6">

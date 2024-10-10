@@ -12,14 +12,17 @@ import Promo from "./pages/promo/Promo";
 import Shipping from "./pages/shipping/Shipping";
 import About from "./pages/about/About";
 import BeautyClub from "./pages/beauty-club/BeautyClub";
+import Parfume from "./pages/parfume/Parfume";
+import CategoryPage from "./pages/category/Category";
 
 const App: React.FC = () => {
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50">
+    <div className="startCs flex flex-col min-h-screen bg-white">
       <Header />
       <main className="flex-grow container mx-auto px-4 py-8">
         <Routes>
           <Route path="/" element={<ProductList />} />
+          <Route path="/category/:category" element={<CategoryPage />} />
           <Route path="/product/:id" element={<SingleProduct />} />
           <Route path="/like" element={<Like />} />
           <Route path="/cart" element={<Cart />} />
@@ -39,6 +42,8 @@ const App: React.FC = () => {
           <Route path="/shipping" element={<Shipping />} />
           <Route path="/about" element={<About />} />
           <Route path="/beauty-club" element={<BeautyClub />} />
+
+          <Route path="/perfumery" element={<Parfume />} />
         </Routes>
       </main>
       <Footer />

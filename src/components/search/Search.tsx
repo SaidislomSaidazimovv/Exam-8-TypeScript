@@ -33,6 +33,7 @@ interface Product {
 
 const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [productType, setProductType] = useState("lipstick");
   const [isLoading, setIsLoading] = useState(false);
   const [results, setResults] = useState<Product[]>([]);
   const [error, setError] = useState("");
@@ -52,7 +53,7 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
     } else {
       setResults([]);
     }
-  }, [searchTerm]);
+  }, [searchTerm, productType]);
 
   const handleSearch = async () => {
     setIsLoading(true);
@@ -61,7 +62,7 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
       const response = await axios.get(
         `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${encodeURIComponent(
           searchTerm
-        )}`
+        )}&product_type=${encodeURIComponent(productType)}`
       );
       setResults(response.data);
     } catch (err) {
@@ -124,6 +125,15 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
             onChange={(e) => setSearchTerm(e.target.value)}
             onKeyPress={handleKeyPress}
           />
+          <select
+            value={productType}
+            onChange={(e) => setProductType(e.target.value)}
+            className="ml-4 p-2 border border-gray-300 rounded"
+          >
+            <option value="lipstick">Lipstick</option>
+            <option value="foundation">Foundation</option>
+            <option value="eyeliner">Eyeliner</option>
+          </select>
           <button
             onClick={onClose}
             className="ml-2 text-gray-500 hover:text-gray-700"

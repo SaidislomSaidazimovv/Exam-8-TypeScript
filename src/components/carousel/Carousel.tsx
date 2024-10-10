@@ -22,14 +22,14 @@ const ImageCarousel = () => {
   const images = [Image1, Image2, Image3, Image4, Image5, Image6];
 
   return (
-    <div className="mb-8">
+    <div className="container mx-auto px-4 mb-8">
       <Slider {...settings}>
         {images.map((image, index) => (
           <div key={index} className="outline-none">
             <img
               src={image}
               alt={`Slide ${index + 1}`}
-              className="w-full h-[500px] object-contain rounded-lg"
+              className="w-full h-full object-contain"
             />
           </div>
         ))}

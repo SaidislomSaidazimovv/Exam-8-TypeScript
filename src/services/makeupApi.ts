@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export interface Product {
   id: number;
   brand: string;
@@ -19,14 +19,18 @@ export interface Product {
   product_api_url: string;
   api_featured_image: string;
   product_colors: { hex_value: string; colour_name: string }[];
+  selectedOption: string;
+  quantity: number;
 }
 
 export const makeupApi = createApi({
-  reducerPath: 'makeupApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://makeup-api.herokuapp.com/api/v1/' }),
+  reducerPath: "makeupApi",
+  baseQuery: fetchBaseQuery({
+    baseUrl: "https://makeup-api.herokuapp.com/api/v1/",
+  }),
   endpoints: (builder) => ({
     getProducts: builder.query<Product[], void>({
-      query: () => 'products.json',
+      query: () => "products.json",
     }),
     getProductById: builder.query<Product, string>({
       query: (id) => `products/${id}.json`,
