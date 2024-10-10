@@ -28,7 +28,6 @@ const likeSlice = createSlice({
       state.items = state.items.filter((item) => item.id !== action.payload);
       localStorage.setItem("likes", JSON.stringify(state.items));
       if (removedItem) {
-        toast.error(`${removedItem.name} removed from favorites!`);
       }
     },
   },

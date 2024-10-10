@@ -42,9 +42,9 @@ const SingleProduct: React.FC = () => {
 
   const thumbnails = [
     product.image_link,
-    "/api/placeholder/400/400",
-    "/api/placeholder/400/400",
-    "/api/placeholder/400/400",
+    product.image_link,
+    product.image_link,
+    product.image_link,
   ];
 
   return (

@@ -12,8 +12,8 @@ import Promo from "./pages/promo/Promo";
 import Shipping from "./pages/shipping/Shipping";
 import About from "./pages/about/About";
 import BeautyClub from "./pages/beauty-club/BeautyClub";
-import Parfume from "./pages/parfume/Parfume";
 import CategoryPage from "./pages/category/Category";
+import Profile from "./components/profile/Profile";
 
 const App: React.FC = () => {
   return (
@@ -24,6 +24,7 @@ const App: React.FC = () => {
           <Route path="/" element={<ProductList />} />
           <Route path="/category/:category" element={<CategoryPage />} />
           <Route path="/product/:id" element={<SingleProduct />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/like" element={<Like />} />
           <Route path="/cart" element={<Cart />} />
           <Route
@@ -43,7 +44,6 @@ const App: React.FC = () => {
           <Route path="/about" element={<About />} />
           <Route path="/beauty-club" element={<BeautyClub />} />
 
-          <Route path="/perfumery" element={<Parfume />} />
         </Routes>
       </main>
       <Footer />
